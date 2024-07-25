@@ -1,3 +1,4 @@
+'use client';
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Task from "@components/Task";
@@ -10,20 +11,24 @@ export default function Home() {
   // Define the interface of task-item object
   interface TaskItem {
     // your code here
+    id: string;
+    title: string;
+    completed: boolean;
+
   }
 
   // useState hook for an array of task-item objects
   const [tasks, setTasks] = useState<TaskItem[]>([]);
 
   // Define the function with proper type
-  const addTask = (newTaskTitle) => {
+  const addTask = (newTaskTitle:string) => {
     const newTask = { id: nanoid(), title: newTaskTitle, completed: false };
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
   };
 
   // Define the function with proper type
-  const deleteTask = (taskId) => {
+  const deleteTask = (taskId:string) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
