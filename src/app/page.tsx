@@ -11,7 +11,7 @@ export default function Home() {
   // Define the interface of task-item object
   interface TaskItem {
     // your code here
-    id: string;
+    id: number;
     title: string;
     completed: boolean;
 
@@ -28,13 +28,13 @@ export default function Home() {
   };
 
   // Define the function with proper type
-  const deleteTask = (taskId:string) => {
+  const deleteTask = (taskId:number) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
 
   // Define the function with proper type
-  const toggleDoneTask = (taskId) => {
+  const toggleDoneTask = (taskId:number) => {
     //structuredClone will copy an array or an object "deeply"
     //So objects within an object will be copied too
     const newTasks = structuredClone(tasks);
